@@ -10,12 +10,16 @@
   import {mapMutations} from 'vuex';
   import {getSubdomain, isValidSubdomain, SESSION, setSESSION} from "./utils";
   // LoggedIn | NotLoggedIn
-  // const DefaultLayout = "LoggedIn";
-  const DefaultLayout = "NotLoggedIn";
+  const DefaultLayout = "LoggedIn";
+  // const DefaultLayout = "NotLoggedIn";
+  let isAuthenticated = false;
 
   export default {
     name: "App",
     created() {
+      // TODO: check authenticated
+      if(!isAuthenticated) return this.$router.replace({ name: "dashBoard" });
+      // TODO: else
       if(this.$route.query.token) {
         setSESSION(SESSION.TOKEN, this.$route.query.token)
       }
@@ -81,7 +85,6 @@
           }).catch(() => {
 
           });
-
       }else if(this.$route.name !== "password_reset_confirm" && this.$route.name !== "createproject"){
         // TODO: when remove token
         // this.$router.replace({ name: "index" });
@@ -96,7 +99,9 @@
         let subdomain = getSubdomain(location.hostname);
         return !subdomain || isValidSubdomain(subdomain);
       },
-
+      isAuthenticated() {
+        return isAuthenticated;
+      }
 
     },
     methods: {

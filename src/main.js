@@ -15,7 +15,7 @@ import uuid from 'uuid/v4';
 
 
 import { setAxiosAuthorizationHeader } from "./store/modules/auth";
-import {getSESSION, SESSION} from "./utils";
+import {getSESSION, SESSION,setSESSION} from "./utils"; // eslint-disable-line
 
 Vue.prototype.$http = axios;
 Vue.prototype.$underscore = _;
@@ -23,7 +23,7 @@ Vue.prototype.$moment = moment;
 Vue.prototype.$uuid = uuid;
 
 // setSESSION(SESSION.TOKEN, 'vlxx.tv');
-
+// setSESSION
 
 Vue.config.productionTip = false;
 // Auto import all layout components
@@ -52,18 +52,13 @@ requireComponent.keys().forEach(fileName => {
   );
 });
 const token = getSESSION(SESSION.TOKEN);
-// const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImR1Y3ZpZXRzcXRAZ21haWwuY29tIiwiZXhwIjoxNTYxMzQxNjk5LCJlbWFpbCI6ImR1Y3ZpZXRzcXRAZ21haWwuY29tIiwic2Vzc2lvbl9pZCI6IjdiNDM2YzUxLWNjOTQtNDk2Mi04MGU0LTc0NTVjOTcwMzA1NiIsIndvcmtzcGFjZSI6ImphdjEifQ.ugz5kM1b5SFrBJ9YZxMXhnqMJbAcL0hZQ4WqXnoMsyg';
 if (token) {
   setAxiosAuthorizationHeader(token);
 }
 Vue.prototype.$eventHub = new Vue(); // Global event bus
 Vue.prototype.$eventTypes = {
-  toggleDrawer: "toggleDrawer",
-  toggleRightDrawer: "toggleRightDrawer",
-  setRightDrawer: "setRightDrawer",
   appClick: "appClick",
   snackNotify: "snackNotify",
-  menuProjectSetting: "menuProjectSetting",
   profileUserDrawer: "profileUserDrawer",
   DeterminateProgress: "DeterminateProgress",
   ModalOnBoard: "ModalOnBoard",
@@ -73,4 +68,4 @@ new Vue({
   router,
   store,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');

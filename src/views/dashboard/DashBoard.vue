@@ -3,17 +3,20 @@
     <v-layout row justify-start class="fill-height">
       <div class="flex">
         <div>
-          DashBoard
+          <FormSearchPage/>
         </div>
       </div>
     </v-layout>
+    <DialogSearchAdvanceQuery/>
   </div>
 </template>
 
 <script>
+  import FormSearchPage from "../../components/FormSearchPage";
+  import DialogSearchAdvanceQuery from "../../components/DialogSearchAdvanceQuery";
   export default {
     name: "DashBoard",
-
+    components: {DialogSearchAdvanceQuery, FormSearchPage},
     metaInfo: {
       title: "Dash Board"
     },
@@ -29,9 +32,7 @@
     mounted() {
       // this.$eventHub.$emit(this.$eventTypes.ModalOnBoard, true);
     },
-    computed: {
-
-    },
+    computed: {},
   }
 </script>
 
