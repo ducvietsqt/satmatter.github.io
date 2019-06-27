@@ -5,8 +5,8 @@
       <v-card-actions class="pl-0">
         <!--<v-subheader>select all</v-subheader>-->
         <!--<v-subheader>clear all</v-subheader>-->
-        <v-btn depressed class="text-capitalize ml-0" color="primary" dense>select all</v-btn>
-        <v-btn depressed class="text-capitalize" color="primary" dense>clear all</v-btn>
+        <v-btn depressed class="ml-0" color="primary" dense small>select all</v-btn>
+        <v-btn depressed class="" color="primary" dense small>clear all</v-btn>
       </v-card-actions>
     </v-card-text>
     <v-card-text class="py-0">
@@ -36,8 +36,9 @@
         <template v-slot:label="{ item, open, leaf }">
           <div class="lab_icon">
             <span>
-              {{item.name}}
-              <strong>{{leaf}}</strong>
+              <strong v-if="!leaf">{{item.name}}</strong>
+              <small v-else>{{item.name}}</small>
+              <!--<strong>{{leaf}}</strong>-->
               <!--{{open}}-->
             </span>
             <!--<v-icon class="pa-0 ml-2" v-if="item.children && !item.type" @click="clickIcon">keyboard_arrow_down</v-icon>-->
@@ -49,8 +50,6 @@
 </template>
 
 <script>
-  // import {listCategoryScheme} from './schemeCategoryList'
-
   export default {
     name: "TreeSchemeByCategory",
     metaInfo: {
@@ -80,11 +79,7 @@
           name: this.getName(type),
           children: this.getChildren(type)
         }));
-        // console.log('XXX',children);
-        // return children;
-        /*return [
-          {children}
-        ]*/
+        // console.log(children);
         return [{
           id: 0,
           name: 'All',
@@ -129,13 +124,13 @@
         const breweries = [];
 
         for (const brewery of this.breweries) {
+          // console.log('brewery',brewery);
           if (brewery.brewery_type !== type) continue;
           breweries.push({
             ...brewery,
             name: this.getName(brewery.name)
           })
         }
-
         return breweries.sort((a, b) => {
           return a.name > b.name ? 1 : -1
         })
