@@ -1,21 +1,29 @@
 <template>
   <div class="form_search">
     <v-form>
+      <v-card-title class="justify-center">
+        <img src="../assets/logo_thumb.png" width="45" alt="">
+        <span class="headline ml-3">
+          Search Matter
+        </span>
+      </v-card-title>
       <v-text-field
         append-icon="location_on"
-        box
-        outline
         single-line
         clear-icon="close"
-        label="Search"
+        label="Search Matter"
         clearable
-        hide-details
+        solo
         type="text"
+        class="mx-auto mb-3"
+        hide-details
+        style="width: 600px; border-radius: 28px; border: solid 2px; overflow:hidden;"
+        @click:append="toggleModalJur"
       ></v-text-field>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn depressed class="text-capitalize" color="primary">Search</v-btn>
-        <v-btn depressed class="text-capitalize" color="primary">Advance query</v-btn>
+        <v-btn class="" color="primary">Search</v-btn>
+        <v-btn class="" color="primary">Advance query</v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
     </v-form>
@@ -24,7 +32,12 @@
 
 <script>
   export default {
-    name: "FormSearchPage"
+    name: "FormSearchPage",
+    methods: {
+      toggleModalJur() {
+        this.$eventHub.$emit(this.$eventTypes.ModalAdvanceQuery);
+      }
+    }
   }
 </script>
 

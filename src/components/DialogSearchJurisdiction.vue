@@ -1,9 +1,6 @@
 <template>
   <v-layout row justify-center>
     <v-dialog v-model="dialog" fullscreen scrollable transition="dialog-bottom-transition" class="fill-height">
-      <template v-slot:activator="{ on }">
-        <v-btn color="primary" dark v-on="on">Open Dialog</v-btn>
-      </template>
       <v-card class="fill-height">
         <v-card-text class="fill-height">
           <v-container>
@@ -24,7 +21,7 @@
             <v-divider></v-divider>
             <v-card-actions class="px-0">
               <v-spacer></v-spacer>
-              <v-btn class="" flat color="grey">Cancel</v-btn>
+              <v-btn class="" flat color="grey" @click="dialog = false">Cancel</v-btn>
               <v-btn class="text-capitalize mr-0" color="primary">Apply Jurisdic</v-btn>
             </v-card-actions>
           </v-container>
@@ -41,7 +38,7 @@
   import {listCategoryScheme, listDistrict} from "./schemeCategoryList";
 
   export default {
-    name: "DialogSearchAdvanceQuery",
+    name: "DialogSearchJurisdiction",
     components: {CheckListItem, TreeSchemeByCategory}, // eslint-disable-line
     data() {
       return {
@@ -51,6 +48,11 @@
         widgets: false,
         listCategoryScheme, listDistrict
       }
+    },
+    created() {
+      this.$eventHub.$on(this.$eventTypes.ModalAdvanceQuery, () => {
+        this.dialog = true
+      })
     }
   }
 </script>

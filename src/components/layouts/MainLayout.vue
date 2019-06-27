@@ -22,11 +22,7 @@
       <MenuAvatarProfile @clickMenuAvatarProfile="clickMenuAvatarProfile"/>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-start align-start>
-          <slot/>
-        </v-layout>
-      </v-container>
+      <slot/>
     </v-content>
     <!--Component include-->
     <Profile :dialog="dialogProfile"
@@ -34,6 +30,7 @@
     <Settings :dialog="dialogSettings"
               @toggleModal="toggleModal"/>
     <ProfileUserDrawer/>
+    <DrawerMyAccount/>
     <Snack/>
   </v-app>
 </template>
@@ -45,6 +42,7 @@
   import Snack from "sat-prj/src/donga/components/utils/Snack";
   import MenuAvatarProfile from "../auth/MenuAvatarProfile";
   import ProfileUserDrawer from "../user/ProfileUserDrawer";
+  import DrawerMyAccount from "../DrawerMyAccount";
 
   const DIALOG_TYPE = {
     'PROFILE': 'PROFILE',
@@ -53,7 +51,9 @@
   export default {
     name: "MainLayout",
     components: {
-      ProfileUserDrawer, MenuAvatarProfile, Snack, Determinate, Profile, Settings},
+      DrawerMyAccount,
+      ProfileUserDrawer, MenuAvatarProfile, Snack, Determinate, Profile, Settings
+    },
     data() {
       return {
         // theme
@@ -137,9 +137,11 @@
     background-attachment: fixed;
     background: #f6f6f6;
   }
+
   .v-card {
 
   }
+
   .fixed_line {
     position: fixed;
     top: 0;

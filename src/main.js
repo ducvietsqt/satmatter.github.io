@@ -62,6 +62,9 @@ Vue.prototype.$eventTypes = {
   profileUserDrawer: "profileUserDrawer",
   DeterminateProgress: "DeterminateProgress",
   ModalOnBoard: "ModalOnBoard",
+  ModalAdvanceQuery: "ModalAdvanceQuery",
+  DrawerMyAccount: "DrawerMyAccount",
+
 };
 
 new Vue({
