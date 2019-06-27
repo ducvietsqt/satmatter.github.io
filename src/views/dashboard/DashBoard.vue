@@ -51,6 +51,7 @@
         </v-flex>
       </v-layout>
       <DialogSearchJurisdiction/>
+      <DialogSearchQueryBuilder/>
     </v-container>
 
     <v-footer app height="auto" flat>
@@ -76,10 +77,11 @@
   import FormSearchPage from "../../components/FormSearchPage";
   import DialogSearchJurisdiction from "../../components/DialogSearchJurisdiction";
   import AvatarAccount from "../../components/AvatarAccount";
+  import DialogSearchQueryBuilder from "../../components/DialogSearchQueryBuilder";
 
   export default {
     name: "DashBoard",
-    components: {AvatarAccount, DialogSearchJurisdiction, FormSearchPage},
+    components: {DialogSearchQueryBuilder, AvatarAccount, DialogSearchJurisdiction, FormSearchPage},
     metaInfo: {
       title: "Dash Board"
     },

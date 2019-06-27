@@ -23,7 +23,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn class="" color="primary">Search</v-btn>
-        <v-btn class="" color="primary">Advance query</v-btn>
+        <v-btn @click="openModalQueryBuilder" class="" color="primary">Advance query</v-btn>
         <v-spacer></v-spacer>
       </v-card-actions>
     </v-form>
@@ -36,6 +36,9 @@
     methods: {
       toggleModalJur() {
         this.$eventHub.$emit(this.$eventTypes.ModalAdvanceQuery);
+      },
+      openModalQueryBuilder() {
+        this.$eventHub.$emit(this.$eventTypes.ModalBuilderQuery);
       }
     }
   }

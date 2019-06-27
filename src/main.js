@@ -13,7 +13,6 @@ import _ from 'lodash';
 import moment from 'moment';
 import uuid from 'uuid/v4';
 
-
 import { setAxiosAuthorizationHeader } from "./store/modules/auth";
 import {getSESSION, SESSION,setSESSION} from "./utils"; // eslint-disable-line
 
@@ -63,6 +62,7 @@ Vue.prototype.$eventTypes = {
   DeterminateProgress: "DeterminateProgress",
   ModalOnBoard: "ModalOnBoard",
   ModalAdvanceQuery: "ModalAdvanceQuery",
+  ModalBuilderQuery: "ModalBuilderQuery",
   DrawerMyAccount: "DrawerMyAccount",
 
 };
