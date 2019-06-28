@@ -6,9 +6,7 @@
       v-model="drawer"
       absolute
       temporary
-      right
-    >
-
+      right>
       <v-img :aspect-ratio="16/9" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" :gradient="message.gradient">
         <v-layout px-3 py-4 column fill-height class="lightbox white--text">
           <v-btn icon dark class="btn_close mt-4" @click="drawer = false">
