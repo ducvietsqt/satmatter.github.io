@@ -64,6 +64,7 @@ Vue.prototype.$eventTypes = {
   ModalAdvanceQuery: "ModalAdvanceQuery",
   ModalBuilderQuery: "ModalBuilderQuery",
   DrawerMyAccount: "DrawerMyAccount",
+  searching: "searching"
 
 };
 

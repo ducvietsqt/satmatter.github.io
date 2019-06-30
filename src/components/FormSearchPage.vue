@@ -7,18 +7,19 @@
       clear-icon="close"
       clearable
       prepend-inner-icon="search"
-      label="Search matter, ..."
+      label="Search matter ..."
       hide-details
       class="hidden-sm-and-down"
       style="border-radius: 0px; background: rgba(255,255,255,0.1); width: 450px;"
-      @click:append="toggleModalJur" @input="onSearch">
+      @click:append="toggleModalJur"
+      @input="onSearch">
     </v-text-field>
   </v-form>
 </template>
 
 <script>
   import _ from 'lodash';
-
+  import {mapMutations} from 'vuex';
   export default {
     name: "FormSearchPage",
     data() {
@@ -27,12 +28,20 @@
       }
     },
     methods: {
+      ...mapMutations('search', ['setQuerySearch']),
       toggleModalJur() {
         this.$eventHub.$emit(this.$eventTypes.ModalAdvanceQuery);
       },
-      onSearch: _.debounce(function (value) {
-        this.filterKey = value
-      }, 2000)
+      timeout(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      },
+      onSearch: _.debounce(async function (value) {
+        this.filterKey = value;
+        this.setQuerySearch(value);
+        await this.$eventHub.$emit(this.$eventTypes.searching, true);
+        await this.timeout(800);
+        await this.$eventHub.$emit(this.$eventTypes.searching, false);
+      }, 800)
     }
   }
 </script>

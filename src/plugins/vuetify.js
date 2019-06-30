@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import 'vuetify/src/stylus/app.styl'
+import TextHighlighter from 'vue-text-highlight';
+Vue.component('text-highlighter', TextHighlighter);
 
 Vue.use(Vuetify, {
   iconfont: 'md',

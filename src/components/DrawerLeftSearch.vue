@@ -7,7 +7,7 @@
     v-model="drawer"
     width="300px"
     style="z-index: 1">
-    <v-list dense>
+    <v-list dense expand>
       <template v-for="item in items">
         <v-layout
           row
@@ -16,13 +16,13 @@
           :key="item.heading"
         >
           <v-flex xs6>
-            <v-subheader v-if="item.heading">
+            <v-subheader v-if="item.heading" class="black--text text-uppercase">
               {{ item.heading }}
             </v-subheader>
           </v-flex>
-          <v-flex xs6 class="text-xs-center">
-            <a href="#!" class="body-2 black--text">EDIT</a>
-          </v-flex>
+          <!--<v-flex xs6 class="text-xs-center">
+            <a href="#!" class="body-2 black&#45;&#45;text">EDIT</a>
+          </v-flex>-->
         </v-layout>
         <v-list-group
           v-else-if="item.children"
@@ -41,7 +41,7 @@
           <v-list-tile
             v-for="(child, i) in item.children"
             :key="i">
-            <v-list-tile-action v-if="child.icon">
+            <!--<v-list-tile-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
@@ -49,6 +49,13 @@
                 {{ child.text }}
               </v-list-tile-title>
             </v-list-tile-content>
+            -->
+            <v-checkbox :label="child.text" value="John" class="black--text headline">
+              <template v-slot:label>
+                <span style="color: rgba(0, 0, 0, 0.87); font-weight: 500; font-size: 13px;">{{child.text}}</span>
+              </template>
+            </v-checkbox>
+
           </v-list-tile>
         </v-list-group>
         <v-list-tile v-else :key="item.text">
@@ -73,9 +80,20 @@
       dialog: false,
       drawer: null,
       items: [
-        {icon: 'contacts', text: 'Contacts'},
-        {icon: 'history', text: 'Frequently contacted'},
-        {icon: 'content_copy', text: 'Duplicates'},
+        {heading: 'Filters'},
+        // {icon: 'contacts', text: 'Contacts'},
+        // {icon: 'history', text: 'Frequently contacted'},
+        // {icon: 'content_copy', text: 'Duplicates'},
+        {
+          icon: 'keyboard_arrow_up',
+          'icon-alt': 'keyboard_arrow_down',
+          text: 'Citing',
+          model: true,
+          children: [
+            {icon: 'add', text: 'Lorem ispum'},
+            {icon: 'add', text: 'sit met'},
+          ]
+        },
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
@@ -85,6 +103,7 @@
             {icon: 'add', text: 'Create label'}
           ]
         },
+
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
@@ -98,11 +117,11 @@
             {text: 'Other contacts'}
           ]
         },
-        {icon: 'settings', text: 'Settings'},
-        {icon: 'chat_bubble', text: 'Send feedback'},
-        {icon: 'help', text: 'Help'},
-        {icon: 'phonelink', text: 'App downloads'},
-        {icon: 'keyboard', text: 'Go to the old version'}
+        // {icon: 'settings', text: 'Settings'},
+        // {icon: 'chat_bubble', text: 'Send feedback'},
+        // {icon: 'help', text: 'Help'},
+        // {icon: 'phonelink', text: 'App downloads'},
+        // {icon: 'keyboard', text: 'Go to the old version'}
       ]
     }),
     props: {

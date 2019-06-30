@@ -47,7 +47,10 @@
 
     <v-container>
       <v-layout row justify-start class="fill-height">
-        <v-flex xs12>
+        <v-flex xs12 class="relative_pos">
+          <InfoTopbarSearchResult/>
+          <PlaceholderContentLoader/>
+          <CardResultItem/>
           <CardResultItem/>
         </v-flex>
       </v-layout>
@@ -66,15 +69,20 @@
   import DrawerLeftSearch from "../../components/DrawerLeftSearch";
   import CardResultItem from "../../components/CardResultItem";
   import DrawerRightSearch from "../../components/DrawerRightSearch";
+  import PlaceholderContentLoader from "../../components/utils/PlaceholderContentLoader";
+  import InfoTopbarSearchResult from "../../components/InfoTopbarSearchResult";
 
   export default {
     name: "DashBoard",
     components: {
+      InfoTopbarSearchResult,
+      PlaceholderContentLoader,
       DrawerRightSearch,
       CardResultItem,
       DrawerLeftSearch,
       BtnAdvanceQueryBuilder,
-      DialogSearchQueryBuilder, AvatarAccount, DialogSearchJurisdiction, FormSearchPage},
+      DialogSearchQueryBuilder, AvatarAccount, DialogSearchJurisdiction, FormSearchPage
+    },
     metaInfo: {
       title: "Dash Board"
     },
@@ -97,10 +105,11 @@
 <style lang="scss">
   .nav_dashboard {
     .v-toolbar__extension {
-      background: #fff;
-      color: #000;
+      /*background: #fff;*/
+      /*color: #000;*/
     }
   }
+
   .text-underline-none {
     text-decoration: none;
   }
