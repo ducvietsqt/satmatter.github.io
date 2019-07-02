@@ -2,7 +2,12 @@ import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import 'vuetify/src/stylus/app.styl'
 import TextHighlighter from 'vue-text-highlight';
+import VuetifyDaterangePicker from "vuetify-daterange-picker";
+import "vuetify-daterange-picker/dist/vuetify-daterange-picker.css";
+
+
 Vue.component('text-highlighter', TextHighlighter);
+Vue.use(VuetifyDaterangePicker);
 
 Vue.use(Vuetify, {
   iconfont: 'md',

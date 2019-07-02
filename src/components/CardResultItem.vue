@@ -1,39 +1,70 @@
 <template>
-    <v-card class="card_shadow mb-4" max-width="100%" transition="slide-y-reverse-transition">
-      <v-card-title primary-title>
-        <v-layout align-center>
-          <!--<v-flex xs1 shrink>
-            <v-avatar color="indigo" :size="45">
-              <v-icon dark>account_circle</v-icon>
-            </v-avatar>
-          </v-flex>-->
-          <v-flex xs12 grow px-3 class="">
-            <h3 class="_title ma-0 mb-1 text-no-wrap ellipsis">
-              <text-highlighter :queries="queries">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut commodi culpa eligendi et,
-                exercitationem laudantium modi nisi pariatur quibusdam quod ut, voluptate voluptatum. A eum molestiae
-                reiciendis repudiandae voluptatibus?
-              </text-highlighter>
+  <v-card class="card_shadow mb-4" max-width="100%" transition="slide-y-reverse-transition">
+    <v-card-title primary-title>
+      <v-layout align-center>
+        <!--<v-flex xs1 shrink>
+          <v-avatar color="indigo" :size="45">
+            <v-icon dark>account_circle</v-icon>
+          </v-avatar>
+        </v-flex>-->
+        <v-flex xs12 grow px-3 class="">
+          <h3 class="_title ma-0 mb-1 text-no-wrap ellipsis">
+            <text-highlighter :queries="queries">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut commodi culpa eligendi et,
+              exercitationem laudantium modi nisi pariatur quibusdam quod ut, voluptate voluptatum. A eum molestiae
+              reiciendis repudiandae voluptatibus?
+            </text-highlighter>
 
-            </h3>
-            <p class="body_1 ma-0 mb-1 v-list--two-line">
-              <text-highlighter :queries="queries">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut commodi culpa eligendi et,
-                exercitationem laudantium modi nisi pariatur quibusdam quod ut, voluptate voluptatum. A eum molestiae
-                reiciendis repudiandae voluptatibus?
-              </text-highlighter>
-            </p>
-            <p class="body_2 ma-0">
-              Last updated 45 minutes ago
-            </p>
-          </v-flex>
-        </v-layout>
-      </v-card-title>
-    </v-card>
+          </h3>
+          <p class="body_1 ma-0 mb-3 v-list--two-line">
+            <text-highlighter :queries="queries">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut commodi culpa eligendi et,
+              exercitationem laudantium modi nisi pariatur quibusdam quod ut, voluptate voluptatum. A eum molestiae
+              reiciendis repudiandae voluptatibus?
+            </text-highlighter>
+          </p>
+          <p class="body_2 ma-0 mb-3">
+            558 U.S.310 (2010) Cited 1,0768 times56 Legal Analyses
+          </p>
+          <div>
+            <v-chip label outline color="primary">
+              <v-avatar>
+                <v-icon>account_circle</v-icon>
+              </v-avatar>
+              <text-highlighter :queries="queries">Motion for summary judgment</text-highlighter>
+
+            </v-chip>
+            <v-chip label outline color="primary">
+              <v-avatar>
+                <v-icon>insert_drive_file</v-icon>
+              </v-avatar>
+              <text-highlighter :queries="queries">Motion to dismiss</text-highlighter>
+
+            </v-chip>
+            <v-chip label outline color="primary">
+              <v-avatar>
+                <v-icon>info</v-icon>
+              </v-avatar>
+              <text-highlighter :queries="queries">Con. Law - Other</text-highlighter>
+
+            </v-chip>
+            <v-chip label outline color="primary">
+              <v-avatar>
+                <v-icon>label</v-icon>
+              </v-avatar>
+              <text-highlighter :queries="queries">Contract - Other</text-highlighter>
+
+            </v-chip>
+          </div>
+        </v-flex>
+      </v-layout>
+    </v-card-title>
+  </v-card>
 </template>
 
 <script>
   import {mapGetters} from 'vuex';
+
   export default {
     name: "CardResultItem",
     data() {

@@ -5,25 +5,37 @@
     app
     right
     :v-model="true"
-    width="200px"
+    width="250px"
     style="z-index: 1">
     <v-list dense class="fill-height">
       <v-layout column class="fill-height">
         <v-flex class="fill-height">
           <v-card flat>
             <v-card-text>
-              <router-link to="#" class="_title_right subheading mb-3">
-                <v-icon color="primary" class="icon">bookmark</v-icon>
-                <span><b>233</b> Bookmark</span>
-              </router-link>
-              <router-link to="#" class="_title_right subheading mb-3">
-                <v-icon color="primary" class="icon">format_quote</v-icon>
-                <span><b>233</b> Cited By</span>
-              </router-link>
-              <router-link to="#" class="_title_right subheading">
-                <v-icon color="primary" class="icon">highlight</v-icon>
-                <span><b>233</b> Highlights</span>
-              </router-link>
+              <v-btn to="#bookmark"
+                     color="primary"
+                     depressed
+                     flat
+                     class="mb-3 text-capitalize grey--text text--darken-1" style="font-weight: 400">
+                <v-icon left class="icon">bookmark</v-icon>
+                <b>233</b>&nbsp; Bookmark
+              </v-btn>
+              <v-btn to="#ctiedby"
+                     color="primary"
+                     depressed
+                     flat
+                     class="mb-3 text-capitalize grey--text text--darken-1" style="font-weight: 400">
+                <v-icon left class="icon">format_quote</v-icon>
+                <b>233</b> &nbsp; Cited By
+              </v-btn>
+              <v-btn to="#highlights"
+                     color="primary"
+                     depressed
+                     flat
+                     class="mb-3 text-capitalize grey--text text--darken-1" style="font-weight: 400">
+                <v-icon left class="icon">highlight</v-icon>
+                <b>233</b>&nbsp; Highlights
+              </v-btn>
             </v-card-text>
           </v-card>
         </v-flex>
@@ -72,7 +84,7 @@
       flex: 1;
       font-size: 14px;
       padding-left: 16px;
-      color: #000 !important;
+      /*color: #000 !important;*/
     }
   }
 </style>

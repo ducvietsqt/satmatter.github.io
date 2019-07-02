@@ -7,122 +7,128 @@
     v-model="drawer"
     width="300px"
     style="z-index: 1">
-    <v-list dense expand>
-      <template v-for="item in items">
-        <v-layout
-          row
-          v-if="item.heading"
-          align-center
-          :key="item.heading"
-        >
-          <v-flex xs6>
-            <v-subheader v-if="item.heading" class="black--text text-uppercase">
-              {{ item.heading }}
-            </v-subheader>
-          </v-flex>
-          <!--<v-flex xs6 class="text-xs-center">
-            <a href="#!" class="body-2 black&#45;&#45;text">EDIT</a>
-          </v-flex>-->
-        </v-layout>
-        <v-list-group
-          v-else-if="item.children"
-          v-model="item.model"
-          :key="item.text"
-          :prepend-icon="item.model ? item.icon : item['icon-alt']"
-          append-icon=""
-        >
-          <v-list-tile slot="activator">
+
+
+    <v-list dense expand class="pa-3">
+      <template v-for="(item, idx) in items">
+        <v-list-group v-model="item.model"
+                      :key="idx"
+                      style="background: #f4f5f7" class="mb-3">
+          <v-list-tile slot="activator" style="border-left: solid 3px #6d42c7">
             <v-list-tile-content>
-              <v-list-tile-title>
-                {{ item.text }}
+              <v-list-tile-title class="text-uppercase font-weight-bold">
+                {{ item.name }}
               </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile
-            v-for="(child, i) in item.children"
-            :key="i">
-            <!--<v-list-tile-action v-if="child.icon">
-              <v-icon>{{ child.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                {{ child.text }}
-              </v-list-tile-title>
-            </v-list-tile-content>
-            -->
-            <v-checkbox :label="child.text" value="John" class="black--text headline">
+          <v-list-tile v-for="(child, i) in item.children"
+                       :key="i">
+            <v-checkbox :label="child.name" value="John" class="black--text headline">
               <template v-slot:label>
-                <span style="color: rgba(0, 0, 0, 0.87); font-weight: 500; font-size: 13px;">{{child.text}}</span>
+                <span style="color: rgba(0, 0, 0, 0.87); font-weight: 500; font-size: 13px;">{{child.name}}</span>
               </template>
             </v-checkbox>
-
           </v-list-tile>
         </v-list-group>
-        <v-list-tile v-else :key="item.text">
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
+      </template>
+      <v-list-group v-model="openDate" style="background: #f4f5f7" class="mb-3">
+        <v-list-tile slot="activator" style="border-left: solid 3px #6d42c7">
           <v-list-tile-content>
-            <v-list-tile-title>
-              {{ item.text }}
+            <v-list-tile-title class="text-uppercase font-weight-bold">
+              Date
             </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-      </template>
+        <v-list-tile class="py-3">
+          <v-list-tile-content>
+            <div class="py-3" style="width: 100%">
+              <DateRangePicker/>
+            </div>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list-group>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
+  import {listDistrict} from "./schemeCategoryList";
+  import DateRangePicker from "./DateRangePicker";
+
   export default {
     name: "DrawerLeftSearch",
+    components: {DateRangePicker},
     data: () => ({
       dialog: false,
       drawer: null,
+      openDate: true,
       items: [
-        {heading: 'Filters'},
-        // {icon: 'contacts', text: 'Contacts'},
-        // {icon: 'history', text: 'Frequently contacted'},
-        // {icon: 'content_copy', text: 'Duplicates'},
+        // {heading: 'Filters'},
+        // {icon: 'contacts', name: 'Contacts'},
+        // {icon: 'history', name: 'Frequently contacted'},
+        // {icon: 'content_copy', name: 'Duplicates'},
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
-          text: 'Citing',
+          name: 'Jurisdiction',
           model: true,
           children: [
-            {icon: 'add', text: 'Lorem ispum'},
-            {icon: 'add', text: 'sit met'},
+            ...listDistrict
           ]
         },
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
-          text: 'Labels',
+          name: 'statutes and regulations',
+          model: true,
+        },
+        {
+          icon: 'keyboard_arrow_up',
+          'icon-alt': 'keyboard_arrow_down',
+          name: 'Nature of Suit',
+          model: true,
+        },
+
+
+        /*{
+          icon: 'keyboard_arrow_up',
+          'icon-alt': 'keyboard_arrow_down',
+          name: 'Jurisdiction',
           model: true,
           children: [
-            {icon: 'add', text: 'Create label'}
+            {icon: 'add', name: 'Lorem ispum'},
+            {icon: 'add', name: 'sit met'},
+          ]
+        },
+        {
+          icon: 'keyboard_arrow_up',
+          'icon-alt': 'keyboard_arrow_down',
+          name: 'Statutes and Regulations',
+          model: true,
+          children: [
+            {icon: 'add', name: 'Create label'}
           ]
         },
 
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
-          text: 'More',
+          name: 'More',
           model: false,
           children: [
-            {text: 'Import'},
-            {text: 'Export'},
-            {text: 'Print'},
-            {text: 'Undo changes'},
-            {text: 'Other contacts'}
+            {name: 'Import'},
+            {name: 'Export'},
+            {name: 'Print'},
+            {name: 'Undo changes'},
+            {name: 'Other contacts'}
           ]
-        },
-        // {icon: 'settings', text: 'Settings'},
-        // {icon: 'chat_bubble', text: 'Send feedback'},
-        // {icon: 'help', text: 'Help'},
-        // {icon: 'phonelink', text: 'App downloads'},
-        // {icon: 'keyboard', text: 'Go to the old version'}
-      ]
+        },*/
+        // {icon: 'settings', name: 'Settings'},
+        // {icon: 'chat_bubble', name: 'Send feedback'},
+        // {icon: 'help', name: 'Help'},
+        // {icon: 'phonelink', name: 'App downloads'},
+        // {icon: 'keyboard', name: 'Go to the old version'}
+      ],
     }),
     props: {
       source: String

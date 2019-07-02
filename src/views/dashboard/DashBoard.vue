@@ -5,7 +5,9 @@
                dark
                :clipped-left="$vuetify.breakpoint.mdAndUp"
                :clipped-right="$vuetify.breakpoint.mdAndUp"
-               app flat>
+               app
+               flat
+               :extended="false">
       <v-toolbar-title style="width: 276px" class="ml-0">
         <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
         <span class="hidden-sm-and-down text-uppercase">Satlegal.io</span>
@@ -40,6 +42,10 @@
         <span>Help</span>
       </v-tooltip>
       <AvatarAccount/>
+      <template v-slot:extension>
+
+      </template>
+
     </v-toolbar>
 
     <DrawerLeftSearch/>
@@ -48,8 +54,24 @@
     <v-container>
       <v-layout row justify-start class="fill-height">
         <v-flex xs12 class="relative_pos">
-          <InfoTopbarSearchResult/>
+          <v-card-actions class="full-width px-0">
+            <InfoTopbarSearchResult/>
+            <v-spacer></v-spacer>
+            <DropDownSortBySearch/>
+          </v-card-actions>
+
+
           <PlaceholderContentLoader/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
+          <CardResultItem/>
           <CardResultItem/>
           <CardResultItem/>
         </v-flex>
@@ -70,12 +92,14 @@
   import CardResultItem from "../../components/CardResultItem";
   import DrawerRightSearch from "../../components/DrawerRightSearch";
   import PlaceholderContentLoader from "../../components/utils/PlaceholderContentLoader";
+  import DropDownSortBySearch from "../../components/DropDownSortBySearch";
   import InfoTopbarSearchResult from "../../components/InfoTopbarSearchResult";
 
   export default {
     name: "DashBoard",
     components: {
       InfoTopbarSearchResult,
+      DropDownSortBySearch,
       PlaceholderContentLoader,
       DrawerRightSearch,
       CardResultItem,
@@ -105,13 +129,16 @@
 <style lang="scss">
   .nav_dashboard {
     .v-toolbar__extension {
-      /*background: #fff;*/
-      /*color: #000;*/
+      background: #fff;
+      color: #000;
     }
   }
 
   .text-underline-none {
     text-decoration: none;
+  }
+  .full-width {
+    width: 100%;
   }
 
 </style>
