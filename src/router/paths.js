@@ -10,6 +10,7 @@ import InviteMembers from "../views/auth/InviteMembers";
 import JoinInvite from "../views/auth/JoinInvite";
 
 import DashBoard from '../views/dashboard/DashBoard';
+import ResultDetail from '../views/ResultDetail';
 
 const LAYOUT = {
   "NotLoggedIn": "NotLoggedIn",
@@ -71,12 +72,9 @@ export default [
     name: "dashBoard",
     component: DashBoard,
   },
-  /*{
-    path: "/home",
-    name: "home",
-    redirect: {
-      name: "HomeProject"
-    }
-  },*/
-
+  {
+    path: "/detail/:id",
+    name: "resultDetail",
+    component: ResultDetail,
+  },
 ];

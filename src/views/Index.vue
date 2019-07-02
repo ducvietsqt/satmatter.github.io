@@ -13,9 +13,6 @@
       let subdomain = getSubdomain(location.hostname);
       if (isValidSubdomain(subdomain) && !this.$store.getters["auth/isLoggedIn"]) {
         this.$router.replace({name: "signin"});
-      }else {
-        // this.$router.replace({name: "dashBoard"});
-        // alert(1)
       }
     }
   };

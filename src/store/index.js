@@ -4,10 +4,12 @@ import user from "./modules/user";
 import layout from "./modules/layout";
 import createLogger from "vuex/dist/logger";
 import auth from "./modules/auth";
+import search from "./modules/search";
+
 
 // DongA
-import projectDetail from "./modules/projectdetail";
 import workspace from "./modules/workspace";
+import ui from "./modules/ui";
 
 Vue.use(Vuex);
 
@@ -20,8 +22,9 @@ export default new Vuex.Store({
     auth,
 
     // DongA
-    projectDetail,
-    workspace
+    workspace,
+    ui,
+    search,
   },
   strict: debug,
   plugins: debug ? [createLogger()] : []
