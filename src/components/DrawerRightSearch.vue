@@ -11,12 +11,12 @@
       <v-layout column class="fill-height">
         <v-flex class="fill-height">
           <v-card flat>
-            <v-card-text>
+            <v-card-text class="py-0 px-0">
               <v-btn to="#bookmark"
                      color="primary"
                      depressed
                      flat
-                     class="mb-3 text-capitalize grey--text text--darken-1" style="font-weight: 400">
+                     class="mb-2 text-capitalize grey--text text--darken-1" style="font-weight: 400">
                 <v-icon left class="icon">bookmark</v-icon>
                 <b>233</b>&nbsp; Bookmark
               </v-btn>
@@ -24,7 +24,7 @@
                      color="primary"
                      depressed
                      flat
-                     class="mb-3 text-capitalize grey--text text--darken-1" style="font-weight: 400">
+                     class="mb-2 text-capitalize grey--text text--darken-1" style="font-weight: 400">
                 <v-icon left class="icon">format_quote</v-icon>
                 <b>233</b> &nbsp; Cited By
               </v-btn>
@@ -32,7 +32,7 @@
                      color="primary"
                      depressed
                      flat
-                     class="mb-3 text-capitalize grey--text text--darken-1" style="font-weight: 400">
+                     class="mb-0 text-capitalize grey--text text--darken-1" style="font-weight: 400">
                 <v-icon left class="icon">highlight</v-icon>
                 <b>233</b>&nbsp; Highlights
               </v-btn>
@@ -42,14 +42,14 @@
         <v-divider></v-divider>
         <v-flex class="mt-auto">
           <v-card flat>
-            <v-card-text class="">
-              <v-btn icon color="primary">
+            <v-card-text class="py-0">
+              <v-btn icon flat color="primary">
                 <v-icon>bookmarks</v-icon>
               </v-btn>
-              <v-btn icon color="primary">
+              <v-btn icon flat color="primary">
                 <v-icon>share</v-icon>
               </v-btn>
-              <v-btn icon color="primary">
+              <v-btn icon flat color="primary">
                 <v-icon>picture_as_pdf</v-icon>
               </v-btn>
             </v-card-text>
