@@ -18,6 +18,7 @@
     name: "App",
     created() {
       // TODO: check authenticated
+      // if(!isAuthenticated) return this.$router.replace({ name: "resultDetail" });
       if(!isAuthenticated) return this.$router.replace({ name: "dashBoard" });
       // TODO: else
       if(this.$route.query.token) {

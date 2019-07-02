@@ -1,11 +1,12 @@
 <template>
   <v-app :dark="isDark" class="bg_app">
     <Determinate/>
-    <v-toolbar
-      app
-      color="primary"
-      dark
-      fixed>
+    <v-toolbar app
+               color="primary"
+               dark
+               :clipped-left="$vuetify.breakpoint.mdAndUp"
+               :clipped-right="$vuetify.breakpoint.mdAndUp"
+               fixed>
       <v-toolbar-title class="ml-0 pl-0 mr-3 layout align-center">
         <v-avatar :size="30" @click.stop="drawer = !drawer" class="pointer_cusor">
           <img src="../../assets/logo_thumb.png" alt="avatar">

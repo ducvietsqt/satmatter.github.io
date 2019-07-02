@@ -50,7 +50,6 @@
 
     <DrawerLeftSearch/>
     <DrawerRightSearch/>
-
     <v-container>
       <v-layout row justify-start class="fill-height">
         <v-flex xs12 class="relative_pos">
@@ -59,8 +58,6 @@
             <v-spacer></v-spacer>
             <DropDownSortBySearch/>
           </v-card-actions>
-
-
           <PlaceholderContentLoader/>
           <CardResultItem/>
           <CardResultItem/>
@@ -87,7 +84,7 @@
   import DialogSearchJurisdiction from "../../components/DialogSearchJurisdiction";
   import AvatarAccount from "../../components/AvatarAccount";
   import DialogSearchQueryBuilder from "../../components/DialogSearchQueryBuilder";
-  import BtnAdvanceQueryBuilder from "../../BtnAdvanceQueryBuilder";
+  import BtnAdvanceQueryBuilder from "../../components/BtnAdvanceQueryBuilder";
   import DrawerLeftSearch from "../../components/DrawerLeftSearch";
   import CardResultItem from "../../components/CardResultItem";
   import DrawerRightSearch from "../../components/DrawerRightSearch";
@@ -105,7 +102,10 @@
       CardResultItem,
       DrawerLeftSearch,
       BtnAdvanceQueryBuilder,
-      DialogSearchQueryBuilder, AvatarAccount, DialogSearchJurisdiction, FormSearchPage
+      DialogSearchQueryBuilder,
+      AvatarAccount,
+      DialogSearchJurisdiction,
+      FormSearchPage
     },
     metaInfo: {
       title: "Dash Board"

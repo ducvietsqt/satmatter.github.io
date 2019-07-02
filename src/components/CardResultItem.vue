@@ -2,18 +2,15 @@
   <v-card class="card_shadow mb-4" max-width="100%" transition="slide-y-reverse-transition">
     <v-card-title primary-title>
       <v-layout align-center>
-        <!--<v-flex xs1 shrink>
-          <v-avatar color="indigo" :size="45">
-            <v-icon dark>account_circle</v-icon>
-          </v-avatar>
-        </v-flex>-->
         <v-flex xs12 grow px-3 class="">
           <h3 class="_title ma-0 mb-1 text-no-wrap ellipsis">
-            <text-highlighter :queries="queries">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut commodi culpa eligendi et,
-              exercitationem laudantium modi nisi pariatur quibusdam quod ut, voluptate voluptatum. A eum molestiae
-              reiciendis repudiandae voluptatibus?
-            </text-highlighter>
+            <router-link to="/detail/1" style="text-decoration: none;">
+              <text-highlighter :queries="queries">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut commodi culpa eligendi et,
+                exercitationem laudantium modi nisi pariatur quibusdam quod ut, voluptate voluptatum. A eum molestiae
+                reiciendis repudiandae voluptatibus?
+              </text-highlighter>
+            </router-link>
 
           </h3>
           <p class="body_1 ma-0 mb-3 v-list--two-line">
